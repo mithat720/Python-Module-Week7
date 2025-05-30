@@ -317,3 +317,12 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Telefon"))
         item = self.tblSonuclar_2.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Zip Code"))
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec())
