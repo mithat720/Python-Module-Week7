@@ -235,3 +235,12 @@ class Ui_PreferensAdmin(object):
         self.pushButton_3.setText(_translate("PreferensAdmin", "Interviews"))
         self.pushButton_4.setText(_translate("PreferensAdmin", "Main Menu"))
         self.pushButton_6.setText(_translate("PreferensAdmin", "Exit"))
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_PreferensAdmin()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec())
