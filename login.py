@@ -220,3 +220,12 @@ class Ui_MainWindow(object):
         self.pushButton_6.setText(_translate("MainWindow", "Exit"))
         self.lblMessage_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Login Message</p></body></html>"))
         self.action1_Bsamak.setText(_translate("MainWindow", "1. Bsamak"))
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec())
