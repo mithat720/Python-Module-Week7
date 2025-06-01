@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>798</width>
-    <height>614</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -139,7 +139,7 @@ QLineEdit {
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
-           <widget class="QLineEdit" name="Search_tetx">
+           <widget class="QLineEdit" name="applications_linedit_input">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -155,7 +155,7 @@ QLineEdit {
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btn_search">
+           <widget class="QPushButton" name="applications_buton_search">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -201,7 +201,7 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/IMG-20250529-WA0013.png</normaloff>Icons/png/IMG-20250529-WA0013.png</iconset>
+              <normaloff>Icons/search.png</normaloff>Icons/search.png</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -212,7 +212,7 @@ QPushButton:pressed {
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnMentorTanimlanan_7">
+           <widget class="QPushButton" name="applications_buton_all_aplications">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -255,12 +255,12 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/IMG-20250529-WA0007.png</normaloff>Icons/png/IMG-20250529-WA0007.png</iconset>
+              <normaloff>Icons/preference_admin.png</normaloff>Icons/preference_admin.png</iconset>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnMentorTanimlanan">
+           <widget class="QPushButton" name="applications_buton_planned_meeting">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -303,12 +303,12 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/IMG-20250529-WA0010.png</normaloff>Icons/png/IMG-20250529-WA0010.png</iconset>
+              <normaloff>Icons/planned_meeting.png</normaloff>Icons/planned_meeting.png</iconset>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnMentorTanimlanmayan_2">
+           <widget class="QPushButton" name="applications_buton_unscheduledmeeting">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -351,12 +351,12 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/Unscheduled_Meetings.png</normaloff>Icons/png/Unscheduled_Meetings.png</iconset>
+              <normaloff>Icons/Unscheduled_Meetings.png</normaloff>Icons/Unscheduled_Meetings.png</iconset>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnMentorTanimlanan_3">
+           <widget class="QPushButton" name="applications_buton_previousvit">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -399,12 +399,12 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/IMG-20250529-WA0009.png</normaloff>Icons/png/IMG-20250529-WA0009.png</iconset>
+              <normaloff>Icons/previous_vit.png</normaloff>Icons/previous_vit.png</iconset>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnMukerrer">
+           <widget class="QPushButton" name="applications_buton_repeated_registration">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -447,12 +447,12 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/Repeated_Registration.png</normaloff>Icons/png/Repeated_Registration.png</iconset>
+              <normaloff>Icons/Repeated_Registration.png</normaloff>Icons/Repeated_Registration.png</iconset>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnFarkliKayit_2">
+           <widget class="QPushButton" name="applications_buton_different_registration">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -495,12 +495,12 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/IMG-20250529-WA0006.png</normaloff>Icons/png/IMG-20250529-WA0006.png</iconset>
+              <normaloff>Icons/different_registration.png</normaloff>Icons/different_registration.png</iconset>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnFiltrelenmis_2">
+           <widget class="QPushButton" name="applications_buton_filtered_applications">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -543,12 +543,12 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/IMG-20250529-WA0007.png</normaloff>Icons/png/IMG-20250529-WA0007.png</iconset>
+              <normaloff>Icons/preference_admin.png</normaloff>Icons/preference_admin.png</iconset>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnMentorTanimlanan_8">
+           <widget class="QPushButton" name="applications_buton_back_menu">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -591,12 +591,12 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/IMG-20250529-WA0023.png</normaloff>Icons/png/IMG-20250529-WA0023.png</iconset>
+              <normaloff>Icons/back_menu.png</normaloff>Icons/back_menu.png</iconset>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="btnMentorTanimlanan_9">
+           <widget class="QPushButton" name="applications_buton_exit">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -639,7 +639,7 @@ QPushButton:pressed {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>Icons/png/exit-icon.png</normaloff>Icons/png/exit-icon.png</iconset>
+              <normaloff>Icons/exit-icon.png</normaloff>Icons/exit-icon.png</iconset>
             </property>
            </widget>
           </item>
@@ -698,18 +698,18 @@ QPushButton:pressed {
   </action>
  </widget>
  <tabstops>
-  <tabstop>btnFiltrelenmis_2</tabstop>
-  <tabstop>btnFarkliKayit_2</tabstop>
-  <tabstop>btnMentorTanimlanmayan_2</tabstop>
-  <tabstop>btn_search</tabstop>
-  <tabstop>Search_tetx</tabstop>
+  <tabstop>applications_buton_filtered_applications</tabstop>
+  <tabstop>applications_buton_different_registration</tabstop>
+  <tabstop>applications_buton_unscheduledmeeting</tabstop>
+  <tabstop>applications_buton_search</tabstop>
+  <tabstop>applications_linedit_input</tabstop>
   <tabstop>tblSonuclar</tabstop>
-  <tabstop>btnMentorTanimlanan_8</tabstop>
-  <tabstop>btnMukerrer</tabstop>
-  <tabstop>btnMentorTanimlanan_9</tabstop>
-  <tabstop>btnMentorTanimlanan_7</tabstop>
-  <tabstop>btnMentorTanimlanan_3</tabstop>
-  <tabstop>btnMentorTanimlanan</tabstop>
+  <tabstop>applications_buton_back_menu</tabstop>
+  <tabstop>applications_buton_repeated_registration</tabstop>
+  <tabstop>applications_buton_exit</tabstop>
+  <tabstop>applications_buton_all_aplications</tabstop>
+  <tabstop>applications_buton_previousvit</tabstop>
+  <tabstop>applications_buton_planned_meeting</tabstop>
  </tabstops>
  <resources/>
  <connections/>
