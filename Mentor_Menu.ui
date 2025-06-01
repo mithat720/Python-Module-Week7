@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>682</width>
-    <height>562</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="font">
@@ -96,7 +96,7 @@ QLineEdit {
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QPushButton" name="btnMentorTanimlanan_7">
+        <widget class="QPushButton" name="mentor_menu_buton_all_applications">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -139,7 +139,7 @@ QPushButton:pressed {
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>Icons/png/IMG-20250529-WA0007.png</normaloff>Icons/png/IMG-20250529-WA0007.png</iconset>
+           <normaloff>Icons/preference_admin.png</normaloff>Icons/preference_admin.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -150,7 +150,7 @@ QPushButton:pressed {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btn_search">
+        <widget class="QPushButton" name="mentor_menu_buton_search">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -193,7 +193,7 @@ QPushButton:pressed {
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>Icons/png/IMG-20250529-WA0013.png</normaloff>Icons/png/IMG-20250529-WA0013.png</iconset>
+           <normaloff>Icons/search.png</normaloff>Icons/search.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -220,7 +220,7 @@ QPushButton:pressed {
         </spacer>
        </item>
        <item>
-        <widget class="QLineEdit" name="Search_tetx">
+        <widget class="QLineEdit" name="mentor_menu_lineedit_input">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -234,7 +234,10 @@ QPushButton:pressed {
           </size>
          </property>
          <property name="text">
-          <string>ARANACAK METNİ GİRİNİZ...</string>
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>Enter the text to search...</string>
          </property>
         </widget>
        </item>
@@ -254,7 +257,7 @@ QPushButton:pressed {
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QPushButton" name="btnMentorTanimlanan_8">
+        <widget class="QPushButton" name="mentor_menu_buton_preferences">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -293,11 +296,11 @@ QPushButton:pressed {
 </string>
          </property>
          <property name="text">
-          <string>Prefenens</string>
+          <string>Preferences</string>
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>Icons/png/Prefenens.png</normaloff>Icons/png/Prefenens.png</iconset>
+           <normaloff>Icons/prefenens.png</normaloff>Icons/prefenens.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -308,7 +311,7 @@ QPushButton:pressed {
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnMentorTanimlanan_9">
+        <widget class="QPushButton" name="mentor_menu_buton_exit">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -351,7 +354,7 @@ QPushButton:pressed {
          </property>
          <property name="icon">
           <iconset>
-           <normaloff>Icons/png/exit-icon.png</normaloff>Icons/png/exit-icon.png</iconset>
+           <normaloff>Icons/exit-icon.png</normaloff>Icons/exit-icon.png</iconset>
          </property>
          <property name="iconSize">
           <size>
@@ -378,7 +381,7 @@ QPushButton:pressed {
         </spacer>
        </item>
        <item>
-        <widget class="QComboBox" name="comboBox">
+        <widget class="QComboBox" name="mentor_menu_combobox">
          <item>
           <property name="text">
            <string>VIT-1 Kursuna katılması uygun olur</string>
@@ -395,7 +398,7 @@ QPushButton:pressed {
      </widget>
     </item>
     <item>
-     <widget class="QTableWidget" name="tblSonuclar">
+     <widget class="QTableWidget" name="mentor_menu_table_result">
       <column>
        <property name="text">
         <string>Datum</string>
