@@ -53,7 +53,7 @@ QLineEdit {
        <string/>
       </property>
       <property name="pixmap">
-       <pixmap>Icons/png/rsz_rsz_logo_vit-7-3-2.png</pixmap>
+       <pixmap>Icons/logo_vit_7_3.png</pixmap>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
