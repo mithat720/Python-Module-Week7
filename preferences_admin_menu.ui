@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>PreferensAdmin</class>
- <widget class="QMainWindow" name="PreferensAdmin">
+ <class>Preferences_Admin_Menu</class>
+ <widget class="QMainWindow" name="Preferences_Admin_Menu">
   <property name="geometry">
    <rect>
     <x>0</x>
