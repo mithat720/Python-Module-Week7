@@ -108,7 +108,7 @@ QLineEdit {
         <number>100</number>
        </property>
        <item>
-        <widget class="QPushButton" name="admin_preference_menu_buton_applications">
+        <widget class="QPushButton" name="preference_admin_menu_button_applications">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -163,7 +163,7 @@ QPushButton:pressed {
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="admin_preference_menu_buton_metor_meeting">
+        <widget class="QPushButton" name="preference_admin_menu_button_metor_meeting">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -223,7 +223,7 @@ QPushButton:pressed {
         <number>100</number>
        </property>
        <item>
-        <widget class="QPushButton" name="admin_preference_menu_buton_interviews">
+        <widget class="QPushButton" name="preference_admin_menu_button_interviews">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -278,7 +278,7 @@ QPushButton:pressed {
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="admin_preference_menu_buton_admin_menu">
+        <widget class="QPushButton" name="preference_admin_menu_button_admin_menu">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -338,7 +338,7 @@ QPushButton:pressed {
         <number>100</number>
        </property>
        <item>
-        <widget class="QPushButton" name="admin_preference_menu_buton_main_menu">
+        <widget class="QPushButton" name="preference_admin_menu_button_main_menu">
          <property name="font">
           <font>
            <pointsize>12</pointsize>
@@ -393,7 +393,7 @@ QPushButton:pressed {
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="admin_preference_menu_buton_exit">
+        <widget class="QPushButton" name="preference_admin_menu_button_exit">
          <property name="font">
           <font>
            <pointsize>12</pointsize>

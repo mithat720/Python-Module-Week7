@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
         self.interviews_menu.show()
         self.close()
     def open_main_menu(self):
-        from preference_menu import MainWindow
+        from user_preference_menu import MainWindow
         self.main_menu = MainWindow()
         self.main_menu.show()
         self.close()
