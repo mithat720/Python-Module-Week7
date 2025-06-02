@@ -3,7 +3,10 @@ from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6 import uic
 from PyQt6.QtCore import Qt
 
-
+admin_list = [{"user": "admin", "password": "admin"},
+    {"user": "admin1", "password": "admin1"}]
+user_list = [{"user": "user", "password": "user"},
+    {"user": "user1", "password": "user11"}]
 class LoginPage(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -34,22 +37,24 @@ class LoginPage(QMainWindow):
             self.move(event.globalPosition().toPoint() - self.drag_position)
             event.accept()
 
+    
     def control_login(self):
-        # Burada giriş kontrolü yapılabilir
-        # Örneğin, kullanıcı adı ve şifre kontrolü
+        
         username = self.login_lineedit_username.text()
         password = self.login_lineedit_password.text()
-        
-        if username == "admin" and password == "admin":
-            self.mesaj("Login Admin is Successful")
-            self.open_preferences_admin()
-            
-        elif username == "user" and password == "user":
-            self.mesaj("User Login is Successful")
-            self.open_preference_menu()
-        else:
-            self.mesaj("Login Failed, Please try again")
-            return False
+
+        for admin in admin_list:
+            if admin["user"] == username and admin["password"] == password:
+                self.mesaj("Login Admin is Successful")
+                self.open_preferences_admin()
+                return
+        for user in user_list:
+            if user["user"] == username and user["password"] == password:
+                self.mesaj("User Login is Successful")
+                self.open_preference_menu()
+                return
+        self.mesaj("Login Failed, Please try again")
+
         
     def mesaj(self, mesaj):
         from PyQt6.QtWidgets import QMessageBox
