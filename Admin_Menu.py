@@ -1,6 +1,7 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow
 from PyQt6 import uic
+from preferences_admin_menu import Preferences_Admin_Menu  # Admin menüsünü içe aktar
 
 
 class Admin_Menu(QMainWindow):
@@ -9,17 +10,13 @@ class Admin_Menu(QMainWindow):
         uic.loadUi("Admin_Menu.ui", self)  # Giriş ekranını yükle
         # pushButton tıklanınca admin ekranını aç
         # self.pushButton.clicked.connect(self.MentorMenu)
-        #µself.login_buton_login.clicked.connect(self.admin_ac)
-        #self.login_buton_exit.clicked.connect(self.close)
+        self.admin_menu_buton_prefencemenu.clicked.connect(self.preferences_admin_menu)
+        self.admin_menu_buton_exit.clicked.connect(self.close)
 
+
+if __name__ == "__main__":
     
-    def Admin_Menu(self):
-        self.Admin_Menu = Admin_Menu()
-        self.Admin_Menu.show()
-        self.close()  # Giriş ekranını kapatmak istersen
-
-
-app = QApplication(sys.argv)
-pencere = Admin_Menu()
-pencere.show()
-sys.exit(app.exec())
+    app = QApplication(sys.argv)
+    pencere = Admin_Menu()
+    pencere.show()
+    sys.exit(app.exec())

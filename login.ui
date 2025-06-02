@@ -342,7 +342,7 @@ QLineEdit {
                   </widget>
                  </item>
                  <item>
-                  <widget class="QCheckBox" name="login_pas_show">
+                  <widget class="QCheckBox" name="login_pass_show">
                    <property name="text">
                     <string>Show</string>
                    </property>
