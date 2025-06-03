@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         self.interviews_menu.show()
         self.close()
 
-    def open_admin_menu(self):    ####### Burası çalışmıyır. Admin menu ye tıklayınca hata veriyor.
+    def open_admin_menu(self):    
         from Admin_Menu import Admin_Menu
         self.admin_menu = Admin_Menu()
         self.admin_menu.show()

@@ -13,7 +13,15 @@ class MainWindow(QMainWindow):
         self.interview_buton_exit.clicked.connect(self.close)
 
     
-  
+
+        self.interview_buton_backmenu.clicked.connect(self.open_user_preference_menu)
+
+    def open_user_preference_menu(self):
+        from user_preference_menu import MainWindow
+        self.preference_menu = MainWindow()
+        self.preference_menu.show()
+        self.close()
+
 if __name__ == "__main__":
     
 
