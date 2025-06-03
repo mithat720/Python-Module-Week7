@@ -384,12 +384,47 @@ QPushButton:pressed {
         <widget class="QComboBox" name="mentor_menu_combobox">
          <item>
           <property name="text">
-           <string>VIT-1 Kursuna katılması uygun olur</string>
+           <string>Başka bir sektöre yönlendirilmeli</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>VIT-3 Kursuna katılması uygun olur</string>
+           <string>Tümünü Göster</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Bir sonraki VIT projesine katilmasi daha uygun olur</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Direkt bireysel koçluk ile işe yönlendirilmesi uygun olur</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>VIT projesi ilk IT eğitimi alıp ITPH a yönlendirilmesi uygun olur</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>VIT projesi ingilizce eğitimi alıp ITPH a yönlendirilmesi uygun olur</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>VIT projesi kapsamında direkt ITPH a yönlendirilmesi uygun olur.</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>VIT projesinin tamamına katılması uygun olur</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Diger</string>
           </property>
          </item>
         </widget>
