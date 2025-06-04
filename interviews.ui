@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1489</width>
+    <height>789</height>
    </rect>
   </property>
   <property name="font">
@@ -443,27 +443,17 @@ QPushButton:pressed {
          </row>
          <column>
           <property name="text">
-           <string>Name</string>
+           <string>Name, Surname</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>Date</string>
+           <string>Projects Submitted</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>E-Mail</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Telefon</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Zip Code</string>
+           <string>Projects Arrivals</string>
           </property>
          </column>
         </widget>
