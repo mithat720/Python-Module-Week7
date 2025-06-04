@@ -36,7 +36,7 @@ class MainWindow(QMainWindow):
         self.mentor_menu_combobox.currentIndexChanged.connect(self.filter_table)
 
     def load_google_sheet_into_table(self):
-        sheet_id = "1z0ZIEzs1VqdB-3JlMmg-G3ud3T6FFOvtmhI45rBqvTI"
+        sheet_id = "1p-kPJGKWH0_HrbV6IPn4kmfVzOKjUpMVGOJvkHSgf3M"
         df = get_data_from_google_sheet(sheet_id)
         self.df = df  # Tüm veri bellekte tutulur
         self.populate_combobox(df)
