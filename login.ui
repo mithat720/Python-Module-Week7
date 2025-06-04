@@ -62,7 +62,7 @@ QLineEdit {
        <property name="frameShadow">
         <enum>QFrame::Raised</enum>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="15,5,20">
+       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="15,5,0,20">
         <property name="spacing">
          <number>6</number>
         </property>
@@ -105,6 +105,13 @@ QLineEdit {
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignHCenter">
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>® 2025</string>
           </property>
          </widget>
         </item>
