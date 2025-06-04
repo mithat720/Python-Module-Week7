@@ -460,18 +460,6 @@ QPushButton:pressed {
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLabel" name="login_text_welkom">
-                <property name="font">
-                 <font>
-                  <pointsize>11</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Login Message&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
