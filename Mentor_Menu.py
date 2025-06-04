@@ -14,17 +14,17 @@ class MainWindow(QMainWindow):
         self.mentor_menu_buton_exit.clicked.connect(self.close)
         self.mentor_menu_buton_all_applications.clicked.connect(self.load_google_sheet_into_table)
         self.mentor_menu_buton_preferences.clicked.connect(self.open_preference_menu)
-        self.setWindowFlag(Qt.WindowType.FramelessWindowHint) #Frameless window
+    #     self.setWindowFlag(Qt.WindowType.FramelessWindowHint) #Frameless window
 
-    def mousePressEvent(self, event):
-        if event.button() == Qt.MouseButton.LeftButton:
-            self.drag_position = event.globalPosition().toPoint() - self.frameGeometry().topLeft()
-            event.accept()
+    # def mousePressEvent(self, event):
+    #     if event.button() == Qt.MouseButton.LeftButton:
+    #         self.drag_position = event.globalPosition().toPoint() - self.frameGeometry().topLeft()
+    #         event.accept()
 
-    def mouseMoveEvent(self, event):
-        if event.buttons() == Qt.MouseButton.LeftButton:
-            self.move(event.globalPosition().toPoint() - self.drag_position)
-            event.accept()
+    # def mouseMoveEvent(self, event):
+    #     if event.buttons() == Qt.MouseButton.LeftButton:
+    #         self.move(event.globalPosition().toPoint() - self.drag_position)
+    #         event.accept()
 
         # Arama tetikleyicileri
         self.mentor_menu_buton_search.clicked.connect(self.filter_table)
