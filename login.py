@@ -1,35 +1,40 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox
-from PyQt6.QtWidgets import QApplication, QMainWindow, QLineEdit
+import gspread
+import pandas as pd
+from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox, QLineEdit
 from PyQt6 import uic
 from PyQt6.QtCore import Qt
+from oauth2client.service_account import ServiceAccountCredentials
 
-admin_list = [{"user": "admin", "password": "admin"},
-    {"user": "admin1", "password": "admin1"}]
-user_list = [{"user": "user", "password": "user"},
-    {"user": "user1", "password": "user11"}]
+
+def get_users_from_sheet(sheet_id):
+    scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+    creds = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
+    client = gspread.authorize(creds)
+    worksheet = client.open_by_key(sheet_id).sheet1
+    data = worksheet.get_all_values()
+    return pd.DataFrame(data[1:], columns=data[0]) if len(data) > 1 else pd.DataFrame()
+
+
 class LoginPage(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("login.ui", self)
         self.setWindowFlag(Qt.WindowType.FramelessWindowHint)
         self.setWindowTitle("Login Page")
+
         self.login_password_show.stateChanged.connect(self.toggle_password_visibility)
         self.login_buton_login.clicked.connect(self.control_login)
         self.login_buton_exit.clicked.connect(self.close)
-        # self.login_line_edit_username.returnPressed.connect(self.control_login)
-        # self.login_line_edit_password.returnPressed.connect(self.control_login)
-
+        self.login_line_edit_username.returnPressed.connect(lambda: self.login_line_edit_password.setFocus()) # Enter tuşuna basıldığında parola alanına geç
+        self.login_line_edit_password.returnPressed.connect(self.control_login) # Enter tuşuna basıldığında giriş yap
 
     def toggle_password_visibility(self):
-        #from PyQt6.QtWidgets import QLineEdit 
-
-
         if self.login_password_show.isChecked():
-            self.login_line_edit_password.setEchoMode(QLineEdit.EchoMode.Normal)  # Visible password
+            self.login_line_edit_password.setEchoMode(QLineEdit.EchoMode.Normal)
         else:
-            self.login_line_edit_password.setEchoMode(QLineEdit.EchoMode.Password)  # Hidden password
-                
+            self.login_line_edit_password.setEchoMode(QLineEdit.EchoMode.Password)
+
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
             self.drag_position = event.globalPosition().toPoint() - self.frameGeometry().topLeft()
@@ -40,36 +45,42 @@ class LoginPage(QMainWindow):
             self.move(event.globalPosition().toPoint() - self.drag_position)
             event.accept()
 
-    
     def control_login(self):
-        
         username = self.login_line_edit_username.text()
         password = self.login_line_edit_password.text()
 
-        for admin in admin_list:
-            if admin["user"] == username and admin["password"] == password:
+        sheet_id = "1I0YBsw4ghlD1GPEhOb_DZyx5F0vd64wc1c8mk6LlMNg"
+        df = get_users_from_sheet(sheet_id)
+
+        # Beklenen başlıklar: kullanici, parola, yetki
+        if not {"kullanici", "parola", "yetki"}.issubset(df.columns):
+            self.mesaj("Sheet başlıkları hatalı. 'kullanici', 'parola', 'yetki' olmalı.")
+            return
+
+        match = df[(df["kullanici"] == username) & (df["parola"] == password)]
+
+        if not match.empty:
+            yetki = match.iloc[0]["yetki"].strip().lower()
+            if yetki == "admin":
                 self.mesaj("Login Admin is Successful")
                 self.open_preferences_admin()
-                return
-            
-        for user in user_list:
-            if user["user"] == username and user["password"] == password:
+            elif yetki == "user":
                 self.mesaj("User Login is Successful")
                 self.open_preference_menu()
-                return
-            
-        self.mesaj("Login Failed, Please try again")
+            else:
+                self.mesaj(f"Bilinmeyen yetki türü: {yetki}")
+            return
 
-        
+        self.mesaj("Login Failed, Please try again.")
+
     def mesaj(self, mesaj):
-        from PyQt6.QtWidgets import QMessageBox
-        mesaj_box = QMessageBox()        
+        mesaj_box = QMessageBox()
         mesaj_box.setText(mesaj)
         mesaj_box.exec()
 
     def open_preferences_admin(self):
-        from preferences_admin_menu import MainWindow  # Prefereces_Admin_Menu is imported from preferences_admin_menu.py
-        self.preferences_admin_menu = MainWindow()  # Preferences_Admin_Menu sınıfından bir örnek oluştur
+        from preferences_admin_menu import MainWindow
+        self.preferences_admin_menu = MainWindow()
         self.preferences_admin_menu.show()
         self.close()
 
