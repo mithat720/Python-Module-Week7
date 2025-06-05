@@ -5,7 +5,11 @@ from oauth2client.service_account import ServiceAccountCredentials
 from PyQt6.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
 from PyQt6 import uic
 from PyQt6.QtCore import Qt
-from user_preference_menu import MainWindow as PreferenceMenuWindow
+#from user_preference_menu import MainWindow as PreferenceMenuWindow
+from user_session import UserSession
+from preferences_admin_menu import MainWindow as AdminPreferenceWindow
+from user_preference_menu import MainWindow as UserPreferenceWindow
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -14,6 +18,7 @@ class MainWindow(QMainWindow):
         self.mentor_menu_buton_exit.clicked.connect(self.close)
         self.mentor_menu_buton_all_applications.clicked.connect(self.load_google_sheet_into_table)
         self.mentor_menu_buton_preferences.clicked.connect(self.open_preference_menu)
+        self.mentor_menu_lineedit_input.textChanged.connect(self.filter_table)
     #     self.setWindowFlag(Qt.WindowType.FramelessWindowHint) #Frameless window
 
     # def mousePressEvent(self, event):
@@ -34,7 +39,7 @@ class MainWindow(QMainWindow):
         self.mentor_menu_combobox.currentIndexChanged.connect(self.filter_table)
 
     def load_google_sheet_into_table(self):
-        sheet_id = "1p-kPJGKWH0_HrbV6IPn4kmfVzOKjUpMVGOJvkHSgf3M"
+        sheet_id = "1sqzXxVLhAXGuWAkbEqma96Pf89JBUToSxERELApwnKw"
         df = get_data_from_google_sheet(sheet_id)
         self.df = df  # Tüm veri bellekte tutulur
         self.populate_combobox(df)
@@ -81,10 +86,23 @@ class MainWindow(QMainWindow):
 
         self.update_table(filtered_df)
 
+    # def open_preference_menu(self):
+    #     self.preference_menu = PreferenceMenuWindow()
+    #     self.preference_menu.show()
+    #     self.close()
+
     def open_preference_menu(self):
-        self.preference_menu = PreferenceMenuWindow()
+        role = UserSession.get_role()
+        if role == "admin":
+            self.preference_menu = AdminPreferenceWindow()
+        elif role == "user":
+            self.preference_menu = UserPreferenceWindow()
+        else:
+            return  # Tanımsız yetki varsa hiçbir şey yapma
+
         self.preference_menu.show()
         self.close()
+
 
 def get_data_from_google_sheet(sheet_id):
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
