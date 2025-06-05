@@ -1,23 +1,23 @@
 import sys
 import datetime
-import smtplib  #Gmail üzerinden e-posta gönder
+import smtplib  #Send email via Gmail
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 from PyQt6 import uic
 from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidgetItem
 
-from googleapiclient.discovery import build  #Google Calendar API ile bağlantı kurup etkinlikleri çekmek için kullanılır.
+from googleapiclient.discovery import build  #Used to connect with the Google Calendar API and retrieve events
 from google.oauth2 import service_account
 
 # --- Google API Info ---
 SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 SERVICE_ACCOUNT_FILE = 'credentials.json'
-CALENDAR_ID = 'vitprojectcrm@gmail.com'  # Your gmail calendar ID
+CALENDAR_ID = 'vitcrmproject@gmail.com'  # Your gmail calendar ID
 
 # --- Gmail SMTP Settings ---
-GMAIL_USER = 'vitprojectcrm@gmail.com'
-GMAIL_PASSWORD = 'qnwj jqyj gior xdup'  # Gmail App Password
+GMAIL_USER = 'vitcrmproject@gmail.com'
+GMAIL_PASSWORD = 'wtke vxea sxdy clom'  # Gmail App Password
 
 class AdminMenu(QMainWindow):
     def __init__(self):
@@ -32,17 +32,17 @@ class AdminMenu(QMainWindow):
     def get_events_from_calendar(self):
         try:
             credentials = service_account.Credentials.from_service_account_file(
-                SERVICE_ACCOUNT_FILE, scopes=SCOPES)  #Google API erişimi için kimlik doğrulaması yap
-            service = build('calendar', 'v3', credentials=credentials)  #Google Calendar servisi başlat
+                SERVICE_ACCOUNT_FILE, scopes=SCOPES)  #Authenticate for Google API access
+            service = build('calendar', 'v3', credentials=credentials)  #Start the Google Calendar service
 
-            now = (datetime.datetime.utcnow() - datetime.timedelta(days=30)).isoformat() + 'Z' #30 gün önceden itibaren etkinlikler al
+            now = (datetime.datetime.utcnow() - datetime.timedelta(days=30)).isoformat() + 'Z' #Get events starting from 30 days ago
             events_result = service.events().list(
                 calendarId=CALENDAR_ID,
                 timeMin=now,
                 maxResults=10,
                 singleEvents=True,
                 orderBy='startTime'
-            ).execute()  #Etkinlikler alınır ve items listesi olarak gelir.
+            ).execute()  #Events are retrieved and come as an items list.
 
             events = events_result.get('items', [])
             self.admin_menu_table_result.setRowCount(0)
@@ -72,7 +72,13 @@ class AdminMenu(QMainWindow):
         for i in range(row_count):
             emails_raw = self.admin_menu_table_result.item(i, 2).text()
             subject = "Event Notification"
-            body = f"Dear participant,\n\nYou are invited to the event titled '{self.admin_menu_table_result.item(i, 0).text()}'.\nStart time: {self.admin_menu_table_result.item(i, 1).text()}.\n\nBest regards."
+            body = f"""Dear Participant,
+
+        You're invited to {self.admin_menu_table_result.item(i, 0).text()}.
+        🕒 Start Time: {self.admin_menu_table_result.item(i, 1).text()}
+
+        Best regards,  
+        CRM Project Team 3"""
 
             for email in emails_raw.split(","):
                 email = email.strip()
