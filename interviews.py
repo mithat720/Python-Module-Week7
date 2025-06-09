@@ -1,5 +1,3 @@
-# deneme
-
 import sys
 import gspread
 import pandas as pd
@@ -15,7 +13,7 @@ class MainWindow(QMainWindow):
 
         # Google Sheets file ID
         self.SHEET_ID = "1rrxfZPTK6kPh3DGOEugtWbrtTfzaq6E9-4Zf1PK8XTE"
-
+        # Try to load data from Google Sheets
         try:
             self.df = get_data_from_google_sheet(self.SHEET_ID)
         except Exception as e:
@@ -46,22 +44,25 @@ class MainWindow(QMainWindow):
     def search_records(self):
         """Search records in the 'Adınız Soyadınız' column that start with the entered text."""
         search_text = self.interview_linedit_input.text().strip().lower()
+        column = "Adınız Soyadınız"
+
         if not search_text:
             QMessageBox.warning(self, "Warning", "Please enter a name to search.")
             return
 
-        if "Adınız Soyadınız" not in self.df.columns:
-            QMessageBox.critical(self, "Error", "'Adınız Soyadınız' column not found.")
+        if column not in self.df.columns:
+            QMessageBox.critical(self, "Error", f"'{column}' column not found.")
             return
 
-        filtered = self.df.dropna(subset=["Adınız Soyadınız"])
-        filtered = filtered[filtered["Adınız Soyadınız"].apply(lambda x: x.strip().lower().startswith(search_text))]
-        filtered = filtered.reset_index(drop=True)
+        # Remove empty values first
+        filtered = self.df[self.df[column].notna()]
+        # Filter names starting with search text (case insensitive, trimmed)
+        filtered = filtered[filtered[column].str.strip().str.lower().str.startswith(search_text)]
 
         if filtered.empty:
             QMessageBox.information(self, "Search Result", "No matching record found.")
         else:
-            self.populate_table(filtered)
+            self.populate_table(filtered.reset_index(drop=True))
 
     def filter_submitted_projects(self):
         """Display records where the 'Proje gonderilis tarihi' column is not empty."""
@@ -112,4 +113,3 @@ if __name__ == "__main__":
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
-
