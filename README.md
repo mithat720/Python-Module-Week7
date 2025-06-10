@@ -1,73 +1,114 @@
-## Python-Module-Week7
+# CRM Project – Team 3
 
-* In this assignment, you are expected to complete the interface of the Python module graduation project on the page [https://werhere-it-academy.gitbook.io/werhere-it-academy-handbook/python-modulu/modul-project/crm.v2](https://werhere-it-academy.gitbook.io/werhere-it-academy-handbook/it-fundamentals-eng/python-module/modul-project/crm)  with an original work.
+This is a Python-based CRM application developed for the **We'RHERE** organization as part of an IT training program.
 
-## Interface login window
-* Create a customized login page for the application. This page contains the following features
-1. Two separate input elements for user and password.
-2. It will react to these two pieces of information and click the next entry button.
-3. A warning text to indicate whether the button was successful or not when clicked.
-* Optionally, you can add another button to close the application and remove the window image.
-* Create a customized login window using consistent background colors, box edge shapes, button features (hover, pressed, rounded edge), different fonts and colors for texts.
-* Tip: By placing a frame first and placing the elements on it, you can create a dynamic dimension for both the frame and the elements you place on it by using layout and spacer.
+The project allows users to manage and view application data that is stored in Google Sheets. It uses a GUI created with **PyQt6**, and integrates with **Google Drive** and **Google Calendar** APIs.
 
-## Preference-Menu
-* It should show three buttons that will direct a user to three different windows when he/she logs in successfully.
-1. Applications The menu-applications button should direct the user to the first application window.
-2. Mentor Meeting - the mentor meeting button should direct the user to the mentor window.
-3.Interviews - the interviews button should direct the user to the interviews window
-4. Add a Close button to exit the application.
-* Differentiate this from the previous input window in a consistent way (colour, format, etc.).
+---
 
-## Preference-Admin-Menu
-* It should display four different buttons that will direct an admin who logs in successfully to four different windows.
-1. It should be able to access the 3 different menus that Preference-Menu can access, as well as the Admin Menu.
-2. It should contain a Close button.
-* Windows must be consistently different from previous windows (input) (colour, shape, etc.).
+## 📌 Project Purpose
 
-## Applications Page
-* The interface will open when the Applications button is clicked in the preferences. It must contain water elements.
-1. Search button and Input box - a box to enter text and a button to which we will add the search function
-2. All Applications button: It should display all records in the Applications file.
-3. Mentor Meeting Defined Button: It should display the data in the Relevant Column in the Applications file on the screen.
-4. Mentor Interview Undefined button: It should display the data in the Relevant Column in the Applications file on the screen.
-5. A 7-column table that will allow the data to be called by the three buttons at the top to be displayed on the screen in the form of columns and rows when called.
-6. Return to Preferences Screen Button - A button that will allow you to return to the Preferences Menu. Note: If the person logged in is admin, it should return to the Preferences-Admin Screen.
-* Each window design should be consistently differentiated from other window designs (colour, shape, frame border colors of buttons, transparent background color of the table, etc.).
-* Depending on your busy schedule, you can also add separate buttons showing VIT1 and VIT2 file records here.
-* Again, differentiate this page from other pages in a consistent way (color, format, frame border colors of buttons, transparent background color of the table, etc.).
+We'RHERE organization handles IT training programs and manages participant data using Google Sheets.
 
-## Mentor Interview Page
-* The interface will open when the Mentor Meeting button is pressed. It should contain the following elements:
-1. Search button and Input box - a box to enter text and a button to which we will add the search function
-2. All Conversations - This is a button that will call all the data in the Mentor File into the table.
-3. Multiple tabs - add a tool that opens down when hovered over, showing multiple options. Tip: Combobox>Edit Items. Note: You can find Multi-Tab data on page 2 of the Mentor File! This tab functions to print the data in the relevant column in the Mentor File to the screen.
-* hint: Combobox > Edit Items
-4. Return to Preferences Screen button.
-Note: If the logged in person is admin, he/she should go back to Preferences-Admin Screen.
+This project aims to provide a **user-friendly desktop application** that displays and interacts with this data easily, without requiring manual access to spreadsheets.
 
-## Interviews page
-* The interface will be called when you press the interviews button on the menu page. It should contain the following elements:
-1. Search button and Input box - a box to enter text and a button to which we will add the search function
-2. Project Submitted Button: The data in the relevant column in the Interviews File should appear on the screen.
-3. Project Submitted Button: The data in the relevant column in the Interview File should appear on the screen.
-4. Return to preferences screen button. Note: If the person logged in is admin, they should return to the Preferences-Admin Screen.
-* You can delete the window image around each page and replace it with a button to close the application.
+---
 
-## Admin Menu
-1. Event Registration Button
-When the Event Recording Button is clicked, the records of the Events in Google Calendar should be displayed. It is up to your preference to add e-mail addresses, meeting location, etc. features here. The format was created as Meeting Title, Start Time, participant e-mail address and organizer e-mail address.
-2. Mail Button
-When you click on the Mail Button, e-mails should be sent to the e-mail addresses registered in the events in Google Calendar. If preferred, the e-mail delivered information can also be displayed on the screen as a message.
-3. Preferences - Return to Admin Screen Button
-When the Preferences-Return to Admin Screen button is clicked, the admin should return to the Preferences-Admin screen.
-4. Exit Button
-* When the Exit Button is clicked, the admin must exit the application.
+## 💻 Technologies Used
 
+- Python 3.x
+- PyQt6 & Qt Designer
+- Google API Client (Drive & Calendar)
+- JSON (for local data)
+- Object-Oriented Programming
+- UML Diagrams
+- GitHub & Trello (Agile-Scrum)
 
-## Page Latency
-* Add functionalities to the 'Return to Preferences screen' buttons on the home page, the Preferences menu and on each page, and test the transitions between pages.
+---
 
-## Hackerrank Questions
+## 🚀 How to Run
 
-1. Utopian Tree: https://www.hackerrank.com/challenges/utopian-tree/problem
+> **Note:** This project is currently in development. It is not yet packaged as an `.exe` file.
+
+To run the application locally:
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/yourusername/crm-project.git
+cd crm-project/week7
+```
+
+2. **Create a virtual environment (optional but recommended):**
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+3. **Install the required packages:**
+
+```bash
+pip install -r requirements.txt
+```
+
+> If `requirements.txt` is not yet generated, install manually:
+```bash
+pip install PyQt6 google-api-python-client google-auth-httplib2 google-auth-oauthlib
+```
+
+4. **Make sure you have the correct `credentials.json` file for Google API access.**
+
+5. **Run the application:**
+
+```bash
+python main.py
+```
+
+---
+
+## 📁 Project Structure
+
+```bash
+week7/
+├── main.py
+├── login.py
+├── Admin_Menu.py
+├── Mentor_Menu.py
+├── Applications.py
+├── interviews.py
+├── user_session.py
+├── *.ui                 # UI design files (Qt Designer)
+├── credentials.json     # Google API credentials
+├── Icons/               # Images and icons used in UI
+├── README.md
+```
+
+---
+
+## 👥 Team & Responsibilities
+
+- **Cafer** – UML diagrams, Login system, Applications page  
+- **Ibrahim** – UI interface design, Mentor Menu  
+- **Sumeyra** – Trello planning, Admin Menu, Google API integration  
+- **Mithat** – Interviews page, README documentation, GitHub uploads  
+- **All Members** – Testing and preparation of the final presentation
+
+---
+
+## 📌 Notes
+
+- Google APIs require proper configuration and authentication. Replace `credentials.json` with your own authorized file.
+- In the future, we plan to build a `.exe` version using PyInstaller or similar tools.
+
+---
+
+## 📷 Screenshots
+
+> (You can add screenshots of your app here in future commits.)
+
+---
+
+## 📃 License
+
+This project is for educational purposes. License to be added.
