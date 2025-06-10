@@ -1,8 +1,9 @@
 import sys
 import gspread
 import pandas as pd
-from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidgetItem
+from PyQt6.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidgetItem, QHeaderView
 from PyQt6 import uic
+from PyQt6.QtCore import Qt
 from oauth2client.service_account import ServiceAccountCredentials
 from user_preference_menu import MainWindow as PreferenceMenu
 
@@ -36,70 +37,76 @@ class MainWindow(QMainWindow):
         table.setRowCount(len(df))
         table.setColumnCount(len(df.columns))
         table.setHorizontalHeaderLabels(df.columns)
+
         for row_idx, row in df.iterrows():
             for col_idx, value in enumerate(row):
                 item = QTableWidgetItem(str(value))
+                item.setTextAlignment(Qt.AlignmentFlag.AlignCenter)  # center align text
                 table.setItem(row_idx, col_idx, item)
 
+        
+        table.resizeColumnsToContents()
+
+        # Makes the header stretch to fill the available space
+        header = table.horizontalHeader()
+        header.setSectionResizeMode(QHeaderView.ResizeMode.Stretch)  
     def search_records(self):
-        """Search records in the 'Adınız Soyadınız' column that start with the entered text."""
+        """Searches for records based on the input text in the 'Adınız Soyadınız' column."""
         search_text = self.interview_linedit_input.text().strip().lower()
         column = "Adınız Soyadınız"
 
         if not search_text:
-            QMessageBox.warning(self, "Warning", "Please enter a name to search.")
+            QMessageBox.warning(self, "Warning", "Please enter the searched text.")
             return
 
         if column not in self.df.columns:
-            QMessageBox.critical(self, "Error", f"'{column}' column not found.")
+            QMessageBox.critical(self, "Error", f"'{column}' column is not found.")
             return
 
-        # Remove empty values first
         filtered = self.df[self.df[column].notna()]
-        # Filter names starting with search text (case insensitive, trimmed)
         filtered = filtered[filtered[column].str.strip().str.lower().str.startswith(search_text)]
 
         if filtered.empty:
-            QMessageBox.information(self, "Search Result", "No matching record found.")
+            QMessageBox.information(self, "Search result", "No matching records.")
         else:
             self.populate_table(filtered.reset_index(drop=True))
 
     def filter_submitted_projects(self):
-        """Display records where the 'Proje gonderilis tarihi' column is not empty."""
+        """Shows sent projects ."""
         column = "Proje gonderilis tarihi"
         if column not in self.df.columns:
-            QMessageBox.critical(self, "Error", f"'{column}' column not found.")
+            QMessageBox.critical(self, "Error", f"'{column}' column is not found.")
             return
 
         submitted = self.df[self.df[column].notna() & (self.df[column].astype(str).str.strip() != "")]
         submitted = submitted.reset_index(drop=True)
         if submitted.empty:
-            QMessageBox.information(self, "Result", "No submitted project record found.")
+            QMessageBox.information(self, "Result", "No submitted project foound.")
         else:
             self.populate_table(submitted)
 
     def filter_arrived_projects(self):
-        """Display records where the 'Projenin gelis tarihi' column is not empty."""
+        """ It shows columns where Prohenin gelis tarihi is not empty."""
         column = "Projenin gelis tarihi"
         if column not in self.df.columns:
-            QMessageBox.critical(self, "Error", f"'{column}' column not found.")
+            QMessageBox.critical(self, "Error", f"'{column}' column is not found.")
             return
 
         arrived = self.df[self.df[column].notna() & (self.df[column].astype(str).str.strip() != "")]
         arrived = arrived.reset_index(drop=True)
         if arrived.empty:
-            QMessageBox.information(self, "Result", "No project arrival record found.")
+            QMessageBox.information(self, "Result", "No macthing records for projects arrivals.")
         else:
             self.populate_table(arrived)
 
     def go_back_menu(self):
-        """Return to the user preference menu."""
+       
         self.pref_window = PreferenceMenu()
         self.pref_window.show()
         self.close()
 
 def get_data_from_google_sheet(sheet_id):
-    """Fetch data from Google Sheets and return it as a DataFrame."""
+    """Google Sheets'ten veri çeker ve DataFrame olarak döndürür."""
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
     creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
     client = gspread.authorize(creds)
