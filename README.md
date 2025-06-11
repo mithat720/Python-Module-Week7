@@ -1,114 +1,131 @@
-# CRM Project – Team 3
+# 📌 We'RHERE CRM Application
 
-This is a Python-based CRM application developed for the **We'RHERE** organization as part of an IT training program.
+## 🧭 Project Overview
 
-The project allows users to manage and view application data that is stored in Google Sheets. It uses a GUI created with **PyQt6**, and integrates with **Google Drive** and **Google Calendar** APIs.
+This is a desktop CRM application developed in Python using PyQt6 and Google APIs. The application allows We’RHERE to manage their IT training application process by accessing and filtering data stored in multiple Google Sheets.
 
----
-
-## 📌 Project Purpose
-
-We'RHERE organization handles IT training programs and manages participant data using Google Sheets.
-
-This project aims to provide a **user-friendly desktop application** that displays and interacts with this data easily, without requiring manual access to spreadsheets.
+The software includes login-based access (admin and user roles), page-specific filtering options, and automated interaction with Google Calendar for managing events and sending notification emails.
 
 ---
 
-## 💻 Technologies Used
+## ⚙️ Technologies Used
 
 - Python 3.x
 - PyQt6 & Qt Designer
-- Google API Client (Drive & Calendar)
-- JSON (for local data)
-- Object-Oriented Programming
-- UML Diagrams
-- GitHub & Trello (Agile-Scrum)
+- Google Drive API
+- Google Calendar API
+- pandas
+- JSON (for local configuration)
+- GitHub for version control
 
 ---
 
-## 🚀 How to Run
+## 🚀 Installation & Setup
 
-> **Note:** This project is currently in development. It is not yet packaged as an `.exe` file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/crm-project.git
+   cd crm-project
+   ```
 
-To run the application locally:
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-1. **Clone the repository:**
+3. Make sure your `credentials.json` file for Google API access is in the root directory.
 
-```bash
-git clone https://github.com/yourusername/crm-project.git
-cd crm-project/week7
-```
+4. Run the program:
+   ```bash
+   python main.py
+   ```
 
-2. **Create a virtual environment (optional but recommended):**
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-3. **Install the required packages:**
-
-```bash
-pip install -r requirements.txt
-```
-
-> If `requirements.txt` is not yet generated, install manually:
-```bash
-pip install PyQt6 google-api-python-client google-auth-httplib2 google-auth-oauthlib
-```
-
-4. **Make sure you have the correct `credentials.json` file for Google API access.**
-
-5. **Run the application:**
-
-```bash
-python main.py
-```
+5. (Optional) To create an executable:
+   Use `pyinstaller` or `auto-py-to-exe`.
 
 ---
 
-## 📁 Project Structure
+## 🖥️ Application Pages Summary
 
-```bash
-week7/
-├── main.py
-├── login.py
-├── Admin_Menu.py
-├── Mentor_Menu.py
-├── Applications.py
-├── interviews.py
-├── user_session.py
-├── *.ui                 # UI design files (Qt Designer)
-├── credentials.json     # Google API credentials
-├── Icons/               # Images and icons used in UI
+- **Login Page**: Allows users to log in with credentials stored in Google Sheets. Redirects based on user role.
+- **Preferences Menu (User/Admin)**: Main navigation page. Admins have additional options.
+- **Applications Page**: Filter, search, and view candidate applications with various options.
+- **Mentor Meetings Page**: View mentor feedback and filter via ComboBox.
+- **Interviews Page**: View submitted or received project data.
+- **Admin Menu**: Fetch events from Google Calendar and send automated emails.
+
+---
+
+## 📌 Usage Scenarios
+
+### 1. Login Screen
+- User enters their username and password.
+- Admin is redirected to the Admin Preferences Menu.
+- User is redirected to the User Preferences Menu.
+
+### 2. Preferences Menu (User)
+- Buttons:
+  - `Applications` opens the Applications page.
+  - `Mentor Meetings` opens the Mentor page.
+  - `Interviews` opens the Interview page.
+- Back button available on each subpage.
+
+### 3. Preferences Menu (Admin)
+- Buttons:
+  - Access `Applications`, `Mentor Meetings`, `Interviews`, and `Admin Menu`.
+- A "Back to Admin Menu" button is provided on each page.
+
+### 4. Applications Page
+- Actions:
+  - Search by name.
+  - View all applications.
+  - Filter by mentor assignment.
+  - View duplicate entries.
+  - Compare VIT1/VIT2 data.
+  - Filter unique entries.
+  - Navigate back with Back button.
+
+### 5. Mentor Page
+- Actions:
+  - Search by name.
+  - View all mentor meeting records.
+  - Filter by evaluation result (via ComboBox).
+  - Navigate back to Preferences Menu.
+
+### 6. Interviews Page
+- Actions:
+  - Search by name.
+  - View candidates with submitted projects.
+  - View candidates whose projects were received.
+  - Navigate back to Preferences Menu.
+
+### 7. Admin Menu Page
+- Actions:
+  - Click `Event Records` to fetch Google Calendar data.
+  - Click `Send Emails` to notify selected users.
+  - View events in a table.
+  - Navigate back to Admin Preferences.
+
+---
+
+## 📂 Project Structure
+
+```
+crm-project/
+│
+├── src/                # Python source files
+├── ui/                 # Qt Designer .ui files
+├── credentials.json    # Google API credentials
+├── requirements.txt
 ├── README.md
+└── main.py             # Entry point
 ```
 
 ---
 
-## 👥 Team & Responsibilities
+## 📝 Notes
 
-- **Cafer** – UML diagrams, Login system, Applications page  
-- **Ibrahim** – UI interface design, Mentor Menu  
-- **Sumeyra** – Trello planning, Admin Menu, Google API integration  
-- **Mithat** – Interviews page, README documentation, GitHub uploads  
-- **All Members** – Testing and preparation of the final presentation
+- Internet connection is required to interact with Google Sheets and Calendar.
+- Ensure your Google Sheets files are shared with the email address from your `credentials.json`.
 
 ---
-
-## 📌 Notes
-
-- Google APIs require proper configuration and authentication. Replace `credentials.json` with your own authorized file.
-- In the future, we plan to build a `.exe` version using PyInstaller or similar tools.
-
----
-
-## 📷 Screenshots
-
-> (You can add screenshots of your app here in future commits.)
-
----
-
-## 📃 License
-
-This project is for educational purposes. License to be added.
