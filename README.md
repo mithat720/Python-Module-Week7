@@ -101,8 +101,8 @@ The software includes login-based access (admin and user roles), page-specific f
 
 ### 7. Admin Menu Page
 - Actions:
-  - Click `Event Records` to fetch Google Calendar data.
-  - Click `Send Emails` to notify selected users.
+  - Click `Activity Control` to fetch Google Calendar data.
+  - Click `Send Mail` to notify selected users.
   - View events in a table.
   - Navigate back to Admin Preferences.
 
